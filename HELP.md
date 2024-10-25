@@ -1,4 +1,3 @@
-# Personal-Finance-Management
 # Getting Started
 
 ### Reference Documentation
