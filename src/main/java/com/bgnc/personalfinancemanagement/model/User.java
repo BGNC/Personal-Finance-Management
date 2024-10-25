@@ -1,8 +1,6 @@
 package com.bgnc.personalfinancemanagement.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -25,10 +23,13 @@ public class User extends BaseEntity implements Serializable, UserDetails {
     @NotEmpty(message = "The username field is required")
     private String username;
 
-    @Column(name = "passowrd",nullable = false)
+    @Column(name = "password",nullable = false)
     @NotEmpty(message = "The password field is required")
     private String password;
 
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Customer customer;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
