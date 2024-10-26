@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 
 @Getter
@@ -11,5 +12,5 @@ import java.time.LocalDate;
 public class ResponseEntity {
 
     private Long id;
-    private LocalDate createTime;
+    private Date createTime;
 }

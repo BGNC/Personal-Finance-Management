@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "transactions")
@@ -37,7 +38,7 @@ public class Transaction extends BaseEntity {
 
     @NotNull(message = "Transaction date cannot be null")
     @Column(name = "transaction_date")
-    private LocalDate transactionDate;
+    private Date transactionDate;
 
     @NotBlank(message = "Description cannot be empty")
     @Size(max = 255, message = "Description must be at most 255 characters")

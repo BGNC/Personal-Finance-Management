@@ -5,12 +5,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import lombok.NoArgsConstructor;
+import org.springframework.cglib.core.Local;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.Date;
 
+
 import static jakarta.persistence.GenerationType.*;
+import static org.springframework.security.web.access.AuthorizationManagerWebInvocationPrivilegeEvaluator.HttpServletRequestTransformer.IDENTITY;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,10 +22,10 @@ import static jakarta.persistence.GenerationType.*;
 public class BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "create_time")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDate createTime;
+    private Date createTime;
 }

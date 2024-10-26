@@ -9,11 +9,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Service
 @RequiredArgsConstructor
-public class CategoryService implements ICategoryService {
+public class CategoryServiceImpl implements ICategoryService {
 
     private final CategoryRepository categoryRepository;
 
