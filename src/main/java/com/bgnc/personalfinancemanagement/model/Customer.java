@@ -20,7 +20,7 @@ import java.util.Date;
 @Builder
 public class Customer extends BaseEntity{
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
@@ -41,5 +41,5 @@ public class Customer extends BaseEntity{
     @NotNull(message = "Birth date cannot be null")
     @Column(name = "birth_of_date")
     @Past(message = "Birth date must be in the past")
-    private LocalDate birthOfDate;
+    private Date birthOfDate;
 }

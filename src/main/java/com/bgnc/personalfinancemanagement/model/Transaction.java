@@ -1,9 +1,6 @@
 package com.bgnc.personalfinancemanagement.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -24,12 +21,12 @@ import java.time.LocalDate;
 @Data
 public class Transaction extends BaseEntity {
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", nullable = false)
     @NotNull(message = "User cannot be null")
     private User user;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", nullable = false)
     @NotNull(message = "Category cannot be null")
     private Category category;
@@ -39,6 +36,7 @@ public class Transaction extends BaseEntity {
     private BigDecimal amount;
 
     @NotNull(message = "Transaction date cannot be null")
+    @Column(name = "transaction_date")
     private LocalDate transactionDate;
 
     @NotBlank(message = "Description cannot be empty")

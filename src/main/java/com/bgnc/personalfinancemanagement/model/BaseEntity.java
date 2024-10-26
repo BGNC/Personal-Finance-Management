@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import static jakarta.persistence.GenerationType.*;
@@ -23,5 +24,5 @@ public class BaseEntity {
 
     @Column(name = "create_time")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private Date createTime;
+    private LocalDate createTime;
 }
